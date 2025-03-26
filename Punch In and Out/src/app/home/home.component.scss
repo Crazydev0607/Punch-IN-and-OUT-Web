@@ -1,0 +1,251 @@
+a {
+  text-decoration: none !important;
+}
+
+.current_click {
+  margin-left: 31px;
+}
+
+// Total Working Hours  */ 
+.card-style {
+  // display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.punch-details {
+  flex: 1;
+  text-align: left;
+}
+
+.working-hours {
+  flex: 1;
+  text-align: right;
+}
+
+.working-hours h1 {
+  font-size: 2.5rem;
+  /* Bigger font for total hours */
+  color: #007bff;
+  /* Bootstrap primary color */
+}
+
+@media (max-width: 768px) {
+  .card-style {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .punch-details,
+  .working-hours {
+    text-align: center;
+  }
+}
+
+
+// Calander details
+.calendar-container {
+  max-width: 1068px;
+  margin: auto;
+  text-align: center;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  /* 7 equal columns */
+  grid-template-rows: repeat(6, 1fr);
+  /* 6 rows */
+  gap: 5px;
+}
+
+.cell {
+  width: 149px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  font-size: 18px;
+  position: relative;
+}
+
+.header {
+  font-weight: bold;
+  background: #f8f9fa;
+}
+
+.today {
+  background: blue;
+  color: white;
+}
+
+.leave {
+  background: green;
+  color: white;
+  border-radius: 5px;
+}
+
+.first-saturday {
+  background: white !important;
+  color: black;
+  border: 1px solid #ddd;
+}
+
+.empty {
+  background: #f1f1f1;
+  visibility: hidden;
+}
+
+/* Hover effect for leave details */
+//   .tooltip {
+//     position: absolute;
+//     bottom: 60px;
+//     background: black;
+//     color: white;
+//     padding: 5px;
+//     border-radius: 5px;
+//     font-size: 12px;
+//     white-space: nowrap;
+//   }
+
+
+//   .marquee-container {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     background: black;
+//     color: white;
+//     padding: 10px;
+//     font-size: 18px;
+//     font-weight: bold;
+//     border-radius: 10px;
+//     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+//   }
+
+//   .marquee-text {
+//     flex-grow: 1;
+//     margin: 0 10px;
+//     font-size: 16px;
+//     font-weight: bold;
+//     color: yellow;
+//   }
+
+//   .star {
+//     font-size: 24px;
+//     animation: blink 1s infinite alternate;
+//     color: red;
+//   }
+
+//   @keyframes blink {
+//     0% { opacity: 1; }
+//     100% { opacity: 0.2; }
+//   }
+
+
+
+.marquee-container,
+.birthday-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0a;
+  /* Light background */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.marquee-text,
+.birthday-text {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ff0000;
+  /* Red for attention */
+}
+
+.star {
+  font-size: 1.5rem;
+  margin: 0 10px;
+  color: #ffcc00;
+  /* Gold stars */
+  animation: blink 1s infinite alternate;
+}
+
+/* Birthday Styling */
+.birthday-container {
+  background: #f7cd7e;
+  /* Light Orange */
+}
+
+.birthday-text {
+  color: #d35400;
+  /* Dark Orange */
+}
+
+.birthday-img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+/* Blinking effect */
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.5;
+  }
+}
+
+
+
+
+
+/* Working Hours Table */
+.working-hours {
+  text-align: center;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+  margin-top: 10px;
+}
+
+.closed {
+  background: red;
+  color: white;
+  font-weight: bold;
+}
+
+.open {
+  background: green;
+  color: white;
+  font-weight: bold;
+}
+
+.cell span {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.icondetails {
+  width: 194px;
+  height: 95px;
+}

@@ -1,0 +1,343 @@
+<aside class="sidebar-nav-wrapper">
+  <div class="navbar-logo">
+    <a href="">
+      <img class="icondetails" src="https://5.imimg.com/data5/IR/VT/MY-2369478/employee-attendance-punching-machine.png"alt="logo" />
+    </a>
+  </div>
+  <nav class="sidebar-nav">
+    <ul>
+      <li class="nav-item active">
+        <a href="#">
+          <span class="icon">
+            <img src="assets/images/menu-icons/home-icon.svg">
+          </span>
+          <span class="text">Home</span>
+        </a>
+      </li>
+
+
+      <span class="divider">
+        <hr />
+      </span>
+
+
+    </ul>
+  </nav>
+
+</aside>
+<div class="overlay"></div>
+<!-- ======== sidebar-nav end =========== -->
+
+<!-- ======== main-wrapper start =========== -->
+<main class="main-wrapper">
+  <!-- ========== header start ========== -->
+  <header class="header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-4">
+          <div class="header-left d-flex align-items-center">
+            <div class="menu-toggle-btn mr-15">
+              <!-- <button id="menu-toggle" class="main-btn primary-btn btn-hover">
+                  <i class="lni lni-chevron-left me-2"></i></button> -->
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-8 mt-5">
+          <div class="header-right ">
+            <div class="header-search d-none d-md-flex">
+              <form action="#">
+                <input type="text" placeholder="Account Number" />
+                <button><i class="lni lni-search-alt"></i></button>
+              </form>
+            </div>
+            <!-- profile start -->
+            <div class="profile-box ml-15">
+              <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="profile-info">
+                  <div class="info">
+                    <div class="image">
+                      <img src="assets/images/profile-icons.png" alt="" />
+                    </div>
+                    <div>
+                      <h6 class="fw-500">Adam Joe</h6>
+                      <p>Admin</p>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
+                <li>
+                  <div class="author-info flex items-center !p-1">
+                    <div class="image">
+                      <img src="assets/images/profile-icons.png" alt="image">
+                    </div>
+                    <div class="content">
+                      <h4 class="text-sm">Adam Joe</h4>
+                      <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs"
+                        href="#"></a>
+                    </div>
+                  </div>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#0"> <i class="lni lni-exit"></i> Sign Out </a>
+                </li>
+              </ul>
+            </div>
+            <!-- profile end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ========== header end ========== -->
+
+  <!-- ========== section start ========== -->
+  <section class="section">
+    <div class="container-fluid">
+      <div class="row pt-10">
+
+
+
+        <!-- <div class="col-lg-12">
+            <div class="card-style settings-card-2 mb-30">
+              <div class="title-card-header">
+                <h4>Login Hourse</h4>
+              </div>
+              <div class="hours">
+                <h1>05:40 Hrs</h1>
+              </div>
+            </div>
+          </div> -->
+
+
+        <div class="col-lg-12 mt-2">
+          <div class="card-style settings-card-2 mb-30 d-flex justify-content-between align-items-center p-3">
+
+            <!-- Right Side: Total Working Hours -->
+            <div class="punch-details">
+              <h4>Total Working Hours</h4>
+              <h1 class="text-primary fw-bold">05:40 Hrs</h1>
+            </div>
+
+            <!-- Left Side: Last Punch Details -->
+            <div class="text-end">
+              <h4>Last Punch</h4>
+              <p><strong>IN:</strong> 03:20 PM</p>
+            </div>
+
+
+
+          </div>
+        </div>
+
+
+
+
+        <!-- <div class="col-lg-12">
+            <div class="d-flex justify-content-end">
+              <div class="add-user-btn">
+                <a href="#"><img src="assets/images/add-user.svg"> Add User</a>
+              </div>
+
+            </div>
+          </div> -->
+
+
+        <div class="col-lg-12">
+          <div class="card-style settings-card-2 mb-30" *ngIf="!status">
+            <div class="title-card-header">
+              <h4>Calander Details</h4>
+            </div>
+
+            <div class="calendar-container">
+              <h3 class="text-center mt-3">{{ currentMonthName }} {{ currentYear }}</h3>
+
+              <div class="navigation">
+                <button class="btn btn-primary" (click)="prevMonth()">❮ Prev</button>
+                <button class="btn btn-primary" (click)="nextMonth()">Next ❯</button>
+              </div>
+
+              <div class="calendar">
+
+                <div class="cell header" *ngFor="let day of weekDays">
+                  {{ day }}
+                </div>
+
+                <div class="cell empty" *ngFor="let _ of emptyDays"></div>
+                <!-- (mouseenter)="hoverDay = day" (mouseleave)="hoverDay = null" -->
+                <div class="cell" *ngFor="let day of daysInMonth" [ngClass]="{
+                    'today': day === today,
+                    'leave': isLeaveDay(day),
+                    'first-saturday': isFirstWeekSaturday(day)
+                  }" (click)="checkinot(currentMonthName,currentYear,day)">
+                  <span>{{ day }}</span>
+                  <div *ngIf="hoverDay === day && isLeaveDay(day)" class="tooltip">
+                    Leave on {{ day }} {{ currentMonthName }}
+                  </div>
+                </div>
+
+                <div class="cell empty" *ngFor="let _ of remainingDays"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Working Hours Punch In and Out -->
+
+          <div class="col-lg-12" *ngIf="status">
+            <div class="card-style p-0 mb-30">
+              <h4 class="text-start current_click mt-3">{{ current_data.day }}-{{ current_data.month }}-{{
+                current_data.year }}</h4>
+              <div class="table-responsive p-4">
+                <table class="table top-selling-table">
+                  <thead>
+                    <tr>
+                      <th>
+                        <h6 class="text-sm text-medium">Punch In</h6>
+                      </th>
+                      <th class="min-width">
+                        <h6 class="text-sm text-medium">Punch Out</h6>
+                      </th>
+                      <th class="min-width">
+                        <h6 class="text-sm text-medium">Total Time</h6>
+                      </th>
+                      <th class="min-width">
+                        <h6 class="text-sm text-medium">Action</h6>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let day of workingHours | paginate: config">
+                      <td>
+                        <p class="text-sm">{{ day.open }}</p>
+                      </td>
+                      <td>
+                        <p class="text-sm">{{ day.close }}</p>
+                      </td>
+                      <td>
+                        <p class="text-sm fw-700">{{ 02.01 }}</p>
+                      </td>
+                      <td>
+                        <div class="btn-export"><a><img src="assets/images/export.svg"></a></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="pagination justify-content-end mt-5">
+                  <pagination-controls (pageChange)="config.currentPage = $event" id="custom-pagination"></pagination-controls>
+                </div>
+                <!-- End Table -->
+                <div class="d-flex justify-content-start">
+                  <button class="btn btn-danger" (click)="checkinot('','','')">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+        <div class="container mt-3">
+          <div class="row">
+            <div class="col-12">
+              <!-- Marquee for HRM Updates -->
+              <div class="marquee-container">
+                <span class="star">★</span>
+                <marquee behavior="scroll" direction="left" class="marquee-text">
+                  🔴 Important HRM Update: All employees must submit their leave requests before the 25th of each month.
+                  |
+                  🎉 Employee of the Month: John Doe | 🚀 New Training Session on Angular - Register Now!
+                </marquee>
+                <span class="star">★</span>
+              </div>
+            </div>
+
+            <!-- Birthday Wishes Marquee -->
+            <div class="col-12 mt-3">
+              <div class="birthday-container">
+                <span class="star">🎂</span>
+                <marquee behavior="scroll" direction="left" class="birthday-text">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQSOur_6KyhWeoVpBW1i3P3b9Ws2uyOF5peQ&s"
+                    class="birthday-img" alt="Birthday Boy">
+                  🎉 Happy Birthday <strong>Rahul Sharma</strong> 🎂! Wishing you a fantastic year ahead! 🥳
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQSOur_6KyhWeoVpBW1i3P3b9Ws2uyOF5peQ&s"
+                    class="birthday-img" alt="Birthday Boy">
+                </marquee>
+                <span class="star">🎂</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- End Col -->
+      </div>
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- ========== section end ========== -->
+
+  <!-- ========== footer start =========== -->
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="copyright text-center text-md-start">
+            <p class="text-sm">
+            </p>
+          </div>
+        </div>
+        <!-- end col-->
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </footer>
+  <!-- ========== footer end =========== -->
+</main>
+<!-- ======== main-wrapper end =========== -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Delete</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete beth.jones (Beths Jones )?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary border-radius">Delete User</button>
+        <button type="button" class="btn btn-secondary border-radius" data-bs-dismiss="modal">Cancel</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Delete</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete beth.jones (Beths Jones )?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary border-radius">Delete User</button>
+        <button type="button" class="btn btn-secondary border-radius" data-bs-dismiss="modal">Cancel</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="btn-delete" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="#"><img
+      src="assets/images/delete.svg"></a></div>
